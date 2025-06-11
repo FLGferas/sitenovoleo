@@ -40,9 +40,14 @@
             border-radius: 8px;
             cursor: pointer;
             font-size: 16px;
+            margin-top: 10px;
         }
         button:hover {
             background-color: #0056b3;
+        }
+        textarea {
+            width: 100%;
+            resize: vertical;
         }
     </style>
 </head>
@@ -134,6 +139,7 @@
             <textarea id="comentario-avaliacao" rows="4" cols="50" placeholder="Conte o que achou do quiz..."></textarea><br><br>
 
             <button onclick="enviarAvaliacao()">Enviar Avaliação</button>
+            <button onclick="enviarEmail()">Enviar por Gmail</button>
             <p id="resposta-avaliacao"></p>
         </section>
     </main>
@@ -173,6 +179,23 @@
             }
 
             document.getElementById("resposta-avaliacao").textContent = `🎉 Obrigado por avaliar o quiz com nota ${nota}! Seu comentário foi registrado.`;
+        }
+
+        function enviarEmail() {
+            const nota = document.getElementById("estrelas").value;
+            const comentario = document.getElementById("comentario-avaliacao").value.trim();
+
+            if (!comentario) {
+                alert("Por favor, escreva um comentário antes de enviar por e-mail.");
+                return;
+            }
+
+            const destinatario = "seuemail@gmail.com"; // Substitua aqui pelo seu e-mail
+            const assunto = encodeURIComponent("Feedback do Quiz de Função Exponencial");
+            const corpo = encodeURIComponent(`Nota: ${nota} estrelas\nComentário: ${comentario}`);
+
+            const link = `mailto:${destinatario}?subject=${assunto}&body=${corpo}`;
+            window.location.href = link;
         }
     </script>
 </body>
