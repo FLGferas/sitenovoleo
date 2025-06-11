@@ -57,6 +57,80 @@
         <p>Teste seus conhecimentos sobre funções exponenciais!</p>
     </header>
 
+
+    <!-- Tabela de pontuação -->
+<section>
+    <h2>Tabela de Pontuação</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Pontuação</th>
+                <th>Avaliação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>0-2</td>
+                <td>Não desista! Cada tentativa é uma oportunidade de você aprender.</td>
+            </tr>
+            <tr>
+                <td>3-6</td>
+                <td>Parabéns! Você foi bem, mas pode melhorar.</td>
+            </tr>
+            <tr>
+                <td>7-10</td>
+                <td>Parabéns! Você é incrível!</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- Lista de respostas -->
+<section>
+    <h2>Verifique suas respostas</h2>
+    <details>
+        <summary>Clique aqui para ver as respostas</summary>
+        <ol>
+            <li>2</li>
+            <li>Diminui</li>
+            <li>9</li>
+            <li>Curva crescente</li>
+            <li>Decrescente</li>
+            <li>1</li>
+            <li>Todos os reais</li>
+            <li>Números positivos</li>
+            <li>3</li>
+            <li>y = (1/3)^x</li>
+        </ol>
+    </details>
+</section>
+
+<!-- Feedback do usuário -->
+<section>
+    <h2>Nos dê o seu feedback</h2>
+    <fieldset>
+        <legend>Informações de contato</legend>
+        <form id="feedbackForm" action="https://formspree.io/f/mjkrydnl" method="POST">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="nome" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="_replyto" required><br>
+
+            <label for="comentario">Comentário:</label><br>
+            <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Digite seus comentários aqui" required></textarea><br>
+
+            <!-- CAMPOS OCULTOS: resultados do quiz -->
+            <input type="hidden" id="campoAcertos" name="Acertos">
+            <input type="hidden" id="campoErros" name="Erros">
+            <input type="hidden" id="campoResumo" name="Resumo_das_respostas">
+
+            <button type="submit">Envie o seu feedback</button>
+        </form>
+    </fieldset>
+</section>
+
+
     <main>
         <form id="quiz-form">
             <section>
