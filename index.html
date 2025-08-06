@@ -1,277 +1,226 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Quiz interativo sobre função exponencial">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Função Exponencial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #ece9e6, #ffffff);
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        header {
-            text-align: center;
-            font-family: 'Orbitron', sans-serif;
-            background-color: #212529;
-            color: #fff;
-            padding: 20px;
-            border-radius: 12px;
-        }
-        section {
-            background-color: #f8f9fa;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #007bff;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-        textarea {
-            width: 100%;
-            resize: vertical;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="description" content="Quiz interativo sobre função exponencial">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Função Exponencial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #212529;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+    }
+    section {
+      background-color: #f8f9fa;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #007bff;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    textarea {
+      width: 100%;
+      resize: vertical;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Quiz: Função Exponencial</h1>
-        <p>Teste seus conhecimentos sobre funções exponenciais!</p>
-    </header>
 
+<header>
+  <h1>Quiz: Função Exponencial</h1>
+  <p>Teste seus conhecimentos sobre funções exponenciais!</p>
+</header>
 
-    <!-- Tabela de pontuação -->
+<!-- Quiz -->
+<main>
+  <form id="quiz-form">
+    <section>
+      <h2>Pergunta 1: Qual é a base da função y = 2^x?</h2>
+      <input type="radio" name="q1" value="2">2<br>
+      <input type="radio" name="q1" value="x">x<br>
+      <input type="radio" name="q1" value="1">1<br>
+    </section>
+    <section>
+      <h2>Pergunta 2: O que acontece com y = 2^x quando x é negativo?</h2>
+      <input type="radio" name="q2" value="diminui">A função diminui<br>
+      <input type="radio" name="q2" value="aumenta">A função aumenta<br>
+      <input type="radio" name="q2" value="constante">Permanece constante<br>
+    </section>
+    <section>
+      <h2>Pergunta 3: Qual o valor de y = 3^2?</h2>
+      <input type="radio" name="q3" value="6">6<br>
+      <input type="radio" name="q3" value="9">9<br>
+      <input type="radio" name="q3" value="12">12<br>
+    </section>
+    <section>
+      <h2>Pergunta 4: Qual gráfico representa uma função exponencial?</h2>
+      <input type="radio" name="q4" value="curva">Curva crescente<br>
+      <input type="radio" name="q4" value="reta">Linha reta<br>
+      <input type="radio" name="q4" value="semicirculo">Semicírculo<br>
+    </section>
+    <section>
+      <h2>Pergunta 5: y = (1/2)^x é uma função...</h2>
+      <input type="radio" name="q5" value="crescente">Crescente<br>
+      <input type="radio" name="q5" value="decrescente">Decrescente<br>
+      <input type="radio" name="q5" value="constante">Constante<br>
+    </section>
+    <section>
+      <h2>Pergunta 6: Qual é o valor de 10^0?</h2>
+      <input type="radio" name="q6" value="0">0<br>
+      <input type="radio" name="q6" value="10">10<br>
+      <input type="radio" name="q6" value="1">1<br>
+    </section>
+    <section>
+      <h2>Pergunta 7: y = 2^x é definida para quais valores de x?</h2>
+      <input type="radio" name="q7" value="positivos">Apenas positivos<br>
+      <input type="radio" name="q7" value="inteiros">Apenas inteiros<br>
+      <input type="radio" name="q7" value="reais">Todos os reais<br>
+    </section>
+    <section>
+      <h2>Pergunta 8: Qual é a imagem da função y = 3^x?</h2>
+      <input type="radio" name="q8" value="positivos">Números positivos<br>
+      <input type="radio" name="q8" value="todos">Todos os reais<br>
+      <input type="radio" name="q8" value="negativos">Reais negativos<br>
+    </section>
+    <section>
+      <h2>Pergunta 9: Se y = 2^x, qual é o valor de x quando y = 8?</h2>
+      <input type="radio" name="q9" value="2">2<br>
+      <input type="radio" name="q9" value="3">3<br>
+      <input type="radio" name="q9" value="4">4<br>
+    </section>
+    <section>
+      <h2>Pergunta 10: Qual das funções representa um decaimento exponencial?</h2>
+      <input type="radio" name="q10" value="5x">y = 5^x<br>
+      <input type="radio" name="q10" value="x2">y = x^2<br>
+      <input type="radio" name="q10" value="13x">y = (1/3)^x<br>
+    </section>
+    <button type="button" onclick="verificarRespostas()">Verificar Respostas</button>
+  </form>
+
+  <section id="resultado"></section>
+</main>
+
+<!-- Formulário de feedback -->
 <section>
-    <h2>Tabela de Pontuação</h2>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Pontuação</th>
-                <th>Avaliação</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>0-2</td>
-                <td>Não desista! Cada tentativa é uma oportunidade de você aprender.</td>
-            </tr>
-            <tr>
-                <td>3-6</td>
-                <td>Parabéns! Você foi bem, mas pode melhorar.</td>
-            </tr>
-            <tr>
-                <td>7-10</td>
-                <td>Parabéns! Você é incrível!</td>
-            </tr>
-        </tbody>
-    </table>
+  <h2>Nos dê o seu feedback</h2>
+  <form id="feedbackForm" action="https://formspree.io/f/mjkrydnl" method="POST">
+    <label for="name">Nome:</label>
+    <input type="text" id="name" name="nome" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="_replyto" required><br>
+
+    <label for="comentario">Comentário:</label><br>
+    <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Digite seus comentários aqui" required></textarea><br>
+
+    <!-- Campos ocultos preenchidos automaticamente -->
+    <input type="hidden" id="campoAcertos" name="Acertos">
+    <input type="hidden" id="campoErros" name="Erros">
+    <input type="hidden" id="campoResumo" name="Resumo_das_respostas">
+
+    <button type="submit">Enviar Feedback</button>
+  </form>
 </section>
 
-<!-- Lista de respostas -->
-<section>
-    <h2>Verifique suas respostas</h2>
-    <details>
-        <summary>Clique aqui para ver as respostas</summary>
-        <ol>
-            <li>2</li>
-            <li>Diminui</li>
-            <li>9</li>
-            <li>Curva crescente</li>
-            <li>Decrescente</li>
-            <li>1</li>
-            <li>Todos os reais</li>
-            <li>Números positivos</li>
-            <li>3</li>
-            <li>y = (1/3)^x</li>
-        </ol>
-    </details>
-</section>
+<!-- Scripts -->
+<script>
+function normalizeText(text) {
+  return text
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
 
-<!-- Feedback do usuário -->
-<section>
-    <h2>Nos dê o seu feedback</h2>
-    <fieldset>
-        <legend>Informações de contato</legend>
-        <form id="feedbackForm" action="https://formspree.io/f/mjkrydnl" method="POST">
-            <label for="name">Nome:</label>
-            <input type="text" id="name" name="nome" required><br>
+function verificarRespostas() {
+  const gabarito = {
+    q1: "2",
+    q2: "diminui",
+    q3: "9",
+    q4: "curva",
+    q5: "decrescente",
+    q6: "1",
+    q7: "reais",
+    q8: "positivos",
+    q9: "3",
+    q10: "13x"
+  };
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="_replyto" required><br>
+  let acertos = 0;
+  let erros = 0;
+  let respostasUsuario = [];
 
-            <label for="comentario">Comentário:</label><br>
-            <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Digite seus comentários aqui" required></textarea><br>
+  for (let i = 1; i <= 10; i++) {
+    const nome = `q${i}`;
+    const input = document.querySelector(`input[name="${nome}"]:checked`);
 
-            <!-- CAMPOS OCULTOS: resultados do quiz -->
-            <input type="hidden" id="campoAcertos" name="Acertos">
-            <input type="hidden" id="campoErros" name="Erros">
-            <input type="hidden" id="campoResumo" name="Resumo_das_respostas">
+    let respostaUsuario = '';
 
-            <button type="submit">Envie o seu feedback</button>
-        </form>
-        <button type="button" onclick="verificarRespostas()">Verificar Respostas</button>
-    </fieldset>
-</section>
+    if (input) {
+      respostaUsuario = input.value;
+      if (normalizeText(respostaUsuario) === normalizeText(gabarito[nome])) {
+        acertos++;
+      } else {
+        erros++;
+      }
+    } else {
+      erros++;
+    }
 
+    respostasUsuario.push(`Pergunta ${i}: ${respostaUsuario || 'sem resposta'}`);
+  }
 
-    <main>
-        <form id="quiz-form">
-            <section>
-                <h2>Pergunta 1: Qual é a base da função y = 2^x?</h2>
-                <input type="radio" name="q1" value="2">2<br>
-                <input type="radio" name="q1" value="x">x<br>
-                <input type="radio" name="q1" value="1">1<br>
-            </section>
-            <section>
-                <h2>Pergunta 2: O que acontece com y = 2^x quando x é negativo?</h2>
-                <input type="radio" name="q2" value="diminui">A função diminui<br>
-                <input type="radio" name="q2" value="aumenta">A função aumenta<br>
-                <input type="radio" name="q2" value="constante">Permanece constante<br>
-            </section>
-            <section>
-                <h2>Pergunta 3: Qual o valor de y = 3^2?</h2>
-                <input type="radio" name="q3" value="6">6<br>
-                <input type="radio" name="q3" value="9">9<br>
-                <input type="radio" name="q3" value="12">12<br>
-            </section>
-            <section>
-                <h2>Pergunta 4: Qual gráfico representa uma função exponencial?</h2>
-                <input type="radio" name="q4" value="curva">Curva crescente<br>
-                <input type="radio" name="q4" value="reta">Linha reta<br>
-                <input type="radio" name="q4" value="semicirculo">Semicírculo<br>
-            </section>
-            <section>
-                <h2>Pergunta 5: y = (1/2)^x é uma função...</h2>
-                <input type="radio" name="q5" value="crescente">Crescente<br>
-                <input type="radio" name="q5" value="decrescente">Decrescente<br>
-                <input type="radio" name="q5" value="constante">Constante<br>
-            </section>
-            <section>
-                <h2>Pergunta 6: Qual é o valor de 10^0?</h2>
-                <input type="radio" name="q6" value="0">0<br>
-                <input type="radio" name="q6" value="10">10<br>
-                <input type="radio" name="q6" value="1">1<br>
-            </section>
-            <section>
-                <h2>Pergunta 7: y = 2^x é definida para quais valores de x?</h2>
-                <input type="radio" name="q7" value="positivos">Apenas positivos<br>
-                <input type="radio" name="q7" value="inteiros">Apenas inteiros<br>
-                <input type="radio" name="q7" value="reais">Todos os reais<br>
-            </section>
-            <section>
-                <h2>Pergunta 8: Qual é a imagem da função y = 3^x?</h2>
-                <input type="radio" name="q8" value="positivos">Números positivos<br>
-                <input type="radio" name="q8" value="todos">Todos os reais<br>
-                <input type="radio" name="q8" value="negativos">Reais negativos<br>
-            </section>
-            <section>
-                <h2>Pergunta 9: Se y = 2^x, qual é o valor de x quando y = 8?</h2>
-                <input type="radio" name="q9" value="2">2<br>
-                <input type="radio" name="q9" value="3">3<br>
-                <input type="radio" name="q9" value="4">4<br>
-            </section>
-            <section>
-                <h2>Pergunta 10: Qual das funções representa um decaimento exponencial?</h2>
-                <input type="radio" name="q10" value="5x">y = 5^x<br>
-                <input type="radio" name="q10" value="x2">y = x^2<br>
-                <input type="radio" name="q10" value="13x">y = (1/3)^x<br>
-            </section>
-            <button type="button" onclick="verificarRespostas()">Verificar Respostas</button>
-        </form>
+  // Exibir resultado
+  const resultadoDiv = document.getElementById("resultado");
+  resultadoDiv.innerHTML = `
+    <h2>Resultado:</h2>
+    <p>Você acertou ${acertos} de 10 questões.</p>
+  `;
 
-        <section id="resultado"></section>
+  // Preencher campos ocultos
+  document.getElementById('campoAcertos').value = acertos;
+  document.getElementById('campoErros').value = erros;
+  document.getElementById('campoResumo').value = respostasUsuario.join('\n');
 
-        <section id="avaliacao">
-            <h2>Avalie o Quiz</h2>
-            <label for="estrelas">Dê uma nota (1 a 5):</label>
-            <select id="estrelas" name="estrelas">
-                <option value="5">⭐⭐⭐⭐⭐ - Excelente</option>
-                <option value="4">⭐⭐⭐⭐ - Muito bom</option>
-                <option value="3">⭐⭐⭐ - Regular</option>
-                <option value="2">⭐⭐ - Fraco</option>
-                <option value="1">⭐ - Ruim</option>
-            </select><br><br>
+  // Salvar no localStorage
+  const email = document.getElementById('email').value || 'anonimo';
+  const resultado = {
+    acertos,
+    erros,
+    data: new Date().toLocaleString()
+  };
+  const banco = JSON.parse(localStorage.getItem('quizResultados') || '{}');
+  banco[email] = resultado;
+  localStorage.setItem('quizResultados', JSON.stringify(banco));
+}
+</script>
 
-            <label for="comentario-avaliacao">Deixe seu comentário:</label><br>
-            <textarea id="comentario-avaliacao" rows="4" cols="50" placeholder="Conte o que achou do quiz..."></textarea><br><br>
-
-            <button onclick="enviarAvaliacao()">Enviar Avaliação</button>
-            <button onclick="enviarEmail()">Enviar por Gmail</button>
-            <p id="resposta-avaliacao"></p>
-        </section>
-    </main>
-
-    <script>
-        function verificarRespostas() {
-            const respostasCorretas = {
-                q1: "2",
-                q2: "diminui",
-                q3: "9",
-                q4: "curva",
-                q5: "decrescente",
-                q6: "1",
-                q7: "reais",
-                q8: "positivos",
-                q9: "3",
-                q10: "13x"
-            };
-
-            let score = 0;
-            for (let i = 1; i <= 10; i++) {
-                const resposta = document.querySelector(`input[name="q${i}"]:checked`);
-                if (resposta && resposta.value === respostasCorretas[`q${i}`]) {
-                    score++;
-                }
-            }
-            document.getElementById("resultado").innerHTML = `<h2>Resultado:</h2><p>Você acertou ${score} de 10 questões.</p>`;
-        }
-
-        function enviarAvaliacao() {
-            const nota = document.getElementById("estrelas").value;
-            const comentario = document.getElementById("comentario-avaliacao").value;
-
-            if (!comentario.trim()) {
-                document.getElementById("resposta-avaliacao").textContent = "Por favor, escreva um comentário antes de enviar.";
-                return;
-            }
-
-            document.getElementById("resposta-avaliacao").textContent = `🎉 Obrigado por avaliar o quiz com nota ${nota}! Seu comentário foi registrado.`;
-        }
-
-        function enviarEmail() {
-            const nota = document.getElementById("estrelas").value;
-            const comentario = document.getElementById("comentario-avaliacao").value.trim();
-
-            if (!comentario) {
-                alert("Por favor, escreva um comentário antes de enviar por e-mail.");
-                return;
-            }
-
-            const destinatario = "seuemail@gmail.com"; // Substitua aqui pelo seu e-mail
-            const assunto = encodeURIComponent("Feedback do Quiz de Função Exponencial");
-            const corpo = encodeURIComponent(`Nota: ${nota} estrelas\nComentário: ${comentario}`);
-
-            const link = `mailto:${destinatario}?subject=${assunto}&body=${corpo}`;
-            window.location.href = link;
-        }
-    </script>
 </body>
 </html>

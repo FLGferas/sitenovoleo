@@ -1,4 +1,3 @@
-<script>
 function normalizeText(text) {
   return text
     .trim()
@@ -38,35 +37,49 @@ function verificarRespostas() {
       } else {
         erros++;
       }
-      respostasUsuario.push(`Pergunta ${i}: ${respostaUsuario}`);
     } else {
       erros++;
-      respostasUsuario.push(`Pergunta ${i}: sem resposta`);
     }
+
+    respostasUsuario.push(`Pergunta ${i}: ${respostaUsuario || 'sem resposta'}`);
   }
 
-  // Exibe na tela
-  document.getElementById("resultado").innerHTML = `
+  // Exibir resultado no quiz
+  const resultadoDiv = document.getElementById("resultado");
+  resultadoDiv.innerHTML = `
     <h2>Resultado:</h2>
     <p>Você acertou ${acertos} de 10 questões.</p>
   `;
 
-  // Preenche campos ocultos do formulário
-  const campoAcertos = document.getElementById("campoAcertos");
-  const campoErros = document.getElementById("campoErros");
-  const campoResumo = document.getElementById("campoResumo");
+  // Preencher campos ocultos com os resultados
+  document.getElementById('campoAcertos').value = acertos;
+  document.getElementById('campoErros').value = erros;
+  document.getElementById('campoResumo').value = respostasUsuario.join('\n');
 
-  if (campoAcertos) campoAcertos.value = acertos;
-  if (campoErros) campoErros.value = erros;
-  if (campoResumo) campoResumo.value = respostasUsuario.join('\n');
-
-  // Opcional: salvar no localStorage mesmo sem email
+  // Salvar no localStorage para visualização futura (caso necessário)
+  const email = document.getElementById('email').value || 'anonimo';
   const resultado = {
     acertos,
     erros,
-    data: new Date().toLocaleString(),
-    respostas: respostasUsuario
+    data: new Date().toLocaleString()
   };
-  localStorage.setItem('resultadoQuiz', JSON.stringify(resultado));
+  const banco = JSON.parse(localStorage.getItem('quizResultados') || '{}');
+  banco[email] = resultado;
+  localStorage.setItem('quizResultados', JSON.stringify(banco));
 }
-</script>
+
+function enviarAvaliacao() {
+  // Quando o feedback for enviado, preenche os campos ocultos com os valores de acertos e erros
+  const acertos = document.getElementById('campoAcertos').value;
+  const erros = document.getElementById('campoErros').value;
+  const resumo = document.getElementById('campoResumo').value;
+
+  if (!acertos || !erros) {
+    alert("Por favor, verifique suas respostas antes de enviar o feedback.");
+    return;
+  }
+
+  // O Formspree irá processar o envio do formulário agora com as informações de acertos e erros
+  const feedbackForm = document.getElementById("feedbackForm");
+  feedbackForm.submit();
+}
