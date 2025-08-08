@@ -1,85 +1,67 @@
-function normalizeText(text) {
-  return text
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('feedbackForm');
 
-function verificarRespostas() {
-  const gabarito = {
-    q1: "2",
-    q2: "diminui",
-    q3: "9",
-    q4: "curva",
-    q5: "decrescente",
-    q6: "1",
-    q7: "reais",
-    q8: "positivos",
-    q9: "3",
-    q10: "13x"
-  };
+  form.addEventListener('submit', function (event) {
+    // Corrigir e contar respostas
+    const gabarito = {
+      'pergunta 1': '2',
+      'pergunta 2': 'diminui',
+      'pergunta 3': '9',
+      'pergunta 4': 'curva'
+      'pergunta 5': 'decrescente'
+      'pergunta 6': '1'
+      'pergunta 7': 'reais'
+      'pergunta 8': 'positivos'
+      'pergunta 9': '3'
+      'pergunta 10': '13x'
 
-  let acertos = 0;
-  let erros = 0;
-  let respostasUsuario = [];
+    };
 
-  for (let i = 1; i <= 10; i++) {
-    const nome = `q${i}`;
-    const input = document.querySelector(`input[name="${nome}"]:checked`);
+    const normalizeText = (text) =>
+      text.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 
-    let respostaUsuario = '';
+    let acertos = 0;
+    let erros = 0;
 
-    if (input) {
-      respostaUsuario = input.value;
-      if (normalizeText(respostaUsuario) === normalizeText(gabarito[nome])) {
-        acertos++;
-      } else {
-        erros++;
-      }
-    } else {
-      erros++;
-    }
+    const p1 = document.querySelector('input[name="pergunta 1"]:checked');
+    const p2 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p3 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p4 = document.querySelector('input[name="pergunta 4"]:checked');
+    const p5 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p6 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p7 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p8 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p9 = document.querySelector('input[name="pergunta 5"]:checked');
+    const p10 = document.querySelector('input[name="pergunta 5"]:checked');
 
-    respostasUsuario.push(`Pergunta ${i}: ${respostaUsuario || 'sem resposta'}`);
-  }
+    if (p1 && p1.value === gabarito['pergunta 1']) acertos++; else erros++;
+    if (p2 && p2.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p3 && p3.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p4 && p4.value.replace(/\s+/g, '') === gabarito['pergunta 4'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p5 && p5.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p6 && p6.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p7 && p7.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p8 && p8.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p9 && p9.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
+    if (p10 && p10.value.replace(/\s+/g, '') === gabarito['pergunta 5'].replace(/\s+/g, '')) acertos++; else erros++;
 
-  // Exibir resultado no quiz
-  const resultadoDiv = document.getElementById("resultado");
-  resultadoDiv.innerHTML = `
-    <h2>Resultado:</h2>
-    <p>Você acertou ${acertos} de 10 questões.</p>
-  `;
+    const resumo = `
+      Pergunta 1: ${p1 ? p1.value : 'sem resposta'}
+      Pergunta 2: ${p2 ? p2.value : 'sem resposta'}
+      Pergunta 3: ${p3 ? p3.value : 'sem resposta'}
+      Pergunta 4: ${p4 ? p4.value : 'sem resposta'}
+      Pergunta 5: ${p5 ? p5.value : 'sem resposta'}
+      Pergunta 6: ${p6 ? p6.value : 'sem resposta'}
+      Pergunta 7: ${p7 ? p7.value : 'sem resposta'}
+      Pergunta 8: ${p8 ? p8.value : 'sem resposta'}
+      Pergunta 9: ${p9 ? p9.value : 'sem resposta'}
+      Pergunta 10: ${p10 ? p10.value : 'sem resposta'}
+    `;
 
-  // Preencher campos ocultos com os resultados
-  document.getElementById('campoAcertos').value = acertos;
-  document.getElementById('campoErros').value = erros;
-  document.getElementById('campoResumo').value = respostasUsuario.join('\n');
+    document.getElementById('campoAcertos').value = acertos;
+    document.getElementById('campoErros').value = erros;
+    document.getElementById('campoResumo').value = resumo.trim();
 
-  // Salvar no localStorage para visualização futura (caso necessário)
-  const email = document.getElementById('email').value || 'anonimo';
-  const resultado = {
-    acertos,
-    erros,
-    data: new Date().toLocaleString()
-  };
-  const banco = JSON.parse(localStorage.getItem('quizResultados') || '{}');
-  banco[email] = resultado;
-  localStorage.setItem('quizResultados', JSON.stringify(banco));
-}
-
-function enviarAvaliacao() {
-  // Quando o feedback for enviado, preenche os campos ocultos com os valores de acertos e erros
-  const acertos = document.getElementById('campoAcertos').value;
-  const erros = document.getElementById('campoErros').value;
-  const resumo = document.getElementById('campoResumo').value;
-
-  if (!acertos || !erros) {
-    alert("Por favor, verifique suas respostas antes de enviar o feedback.");
-    return;
-  }
-
-  // O Formspree irá processar o envio do formulário agora com as informações de acertos e erros
-  const feedbackForm = document.getElementById("feedbackForm");
-  feedbackForm.submit();
-}
+    alert(`Você acertou ${acertos} e errou ${erros}. Enviando seu feedback...`);
+  });
+});
