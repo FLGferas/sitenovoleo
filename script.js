@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'pergunta 1': '2',
       'pergunta 2': 'diminui',
       'pergunta 3': '9',
-      'pergunta 4': 'curva'
+      'pergunta 4': 'curva crescente'
       'pergunta 5': 'decrescente'
       'pergunta 6': '1'
       'pergunta 7': 'reais'
