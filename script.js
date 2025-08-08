@@ -4,17 +4,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Objeto com as respostas corretas (gabarito) do quiz
   // Cada chave representa o "name" do input da pergunta
   const gabarito = {
-   'pergunta 1': '2',
-      'pergunta 2': 'diminui',
-      'pergunta 3': '9',
-      'pergunta 4': 'curva crescente'
-      'pergunta 5': 'decrescente'
-      'pergunta 6': '1'
-      'pergunta 7': 'reais'
-      'pergunta 8': 'positivos'
-      'pergunta 9': '3'
-      'pergunta 10': '13x'
-  };
+  'pergunta 1': '2',
+  'pergunta 2': 'diminui',
+  'pergunta 3': '9',
+  'pergunta 4': 'curva crescente',
+  'pergunta 5': 'decrescente',
+  'pergunta 6': '1',
+  'pergunta 7': 'reais',
+  'pergunta 8': 'positivos',
+  'pergunta 9': '3',
+  'pergunta 10': '13x'
+};
+
 
   // Função para normalizar texto: remove acentos e converte para minúsculas
   function normalizeText(text) {
