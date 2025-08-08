@@ -5,15 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cada chave representa o "name" do input da pergunta
   const gabarito = {
   'pergunta 1': '2',
-  'pergunta 2': 'diminui',
+  'pergunta 2': 'A função diminui',
   'pergunta 3': '9',
   'pergunta 4': 'curva crescente',
-  'pergunta 5': 'decrescente',
+  'pergunta 5': 'Decrescente',
   'pergunta 6': '1',
-  'pergunta 7': 'reais',
-  'pergunta 8': 'positivos',
+  'pergunta 7': 'Todos os reais',
+  'pergunta 8': 'Números positivos',
   'pergunta 9': '3',
-  'pergunta 10': '13x'
+  'pergunta 10': '(1/3)<sup>x</sup></label>'
 };
 
 
