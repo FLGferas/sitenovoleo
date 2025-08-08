@@ -7,6 +7,11 @@ body {
   padding: 0;
   color: #2e2e2e;
 }
+input[type="radio"] {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
 
 header {
   background: linear-gradient(to right, #00c6ff, #0072ff);
