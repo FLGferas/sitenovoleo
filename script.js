@@ -173,5 +173,6 @@ document.getElementById('campoResumo').value = respostasResumo.trim();
       <p>Erros: ${erros}</p>
       <p>Seu resultado foi salvo com sucesso!</p>
     `;
+    document.getElementById('feedbackForm').submit();
   });
 });
