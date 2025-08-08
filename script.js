@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else erros++; // nenhuma opção selecionada
 
     // === PERGUNTA 2 === (tipo radio)
-    const p2 = document.querySelector('input[name="pergunta 1"]:checked');
+    const p2 = document.querySelector('input[name="pergunta 2"]:checked');
     if (p2) {
       if (p2.value === gabarito['pergunta 2']) acertos++;
       else erros++;
